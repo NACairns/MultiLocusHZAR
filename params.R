@@ -23,7 +23,7 @@ traits<-c("Q.A")
 all.clines <- c(loci,traits)
 
 
-## cline range (assuming observations between 0 and 1200 km)
+## cline range (assuming observations between 0 and ~65 km)
 
 far.left  = -20
 far.right = 70
