@@ -25,5 +25,5 @@ all.clines <- c(loci,traits)
 
 ## cline range (assuming observations between 0 and 1200 km)
 
-far.left  = -100
-far.right = 1300
+far.left  = -20
+far.right = 70
