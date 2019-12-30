@@ -43,23 +43,22 @@ if(FALSE){
   summary(tmp)
   densityplot(~center+width,data=tmp)
 }
+# Q.A.QT<-do.call(data.frame,c(as.list(cline.loadPhenModels(traits[1])),row.names=traits[1]))
+
+## Find MLE for QT traits (make sure params.R and modelLoader.R are correct and sourced!)
+## (make sure mleHelper.R is sourced as well)
+
 if(FALSE){
-  # Q.A.QT<-do.call(data.frame,c(as.list(cline.loadPhenModels(traits[1])),row.names=traits[1]))
-  
-  ## Find MLE for QT traits (make sure params.R and modelLoader.R are correct and sourced!)
-  ## (make sure mleHelper.R is sourced as well)
-  Q.A.QT<- #rbind(Q.A.QT,
+   Q.A.QT<- rbind(Q.A.QT,
     foreach(id=traits,.combine=rbind) %dopar% {
       res <-  cline.loadPhenModels(id);
       do.call(data.frame,c(as.list(res),row.names=id))
-    }#)
+    })
 } else {
-  
   Q.A.QT<- foreach(id=traits,.combine=rbind) %do% {
     res<-cline.getModels(id)$AIC
     do.call(data.frame,c(as.list(res),row.names=id))
   }
-  
 }
 
 postProcQT <- function(Q.A.QT){
