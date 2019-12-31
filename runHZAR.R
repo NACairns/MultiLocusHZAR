@@ -61,7 +61,7 @@ if(FALSE){
   }
 }
 
-postProcQT <- function(Q.A.QT){
+  postProcQT <- function(Q.A.QT){
   Q.A.QT$best.model <- apply(Q.A.QT[,1:10],1,function(x,lN) lN[which.min(x)],lN=colnames(Q.A.QT))
   Q.A.QT$center <- foreach(m=Q.A.QT$best.model,id=rownames(Q.A.QT),.combine=c) %do%
     cline.getModels(id)$MLEs[[m]]$param.all$center

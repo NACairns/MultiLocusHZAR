@@ -15,10 +15,10 @@ obsData.getVarLeft <- function(trait,
 ## initial values from there.
 obsData.getMeanRight <- function(trait,
                                 obsData=cline.phenObsData(trait))
-      mean(na.omit(Phen[[trait]][Phen$SiteID %in% c("ZC","ZG")]))
+      mean(na.omit(Phen[[trait]][Phen$SiteID %in% c("J","K")]))
 obsData.getVarRight <- function(trait,
                                obsData=cline.phenObsData(trait))
-    var(na.omit(Phen[[trait]][Phen$SiteID %in% c("ZC","ZG")]))
+    var(na.omit(Phen[[trait]][Phen$SiteID %in% c("J","K")]))
 
 
 
